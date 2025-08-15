@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 shadow-sm">
+  <div class="container">
+    <!-- <a class="navbar-brand fw-bold" href="/">📚 Book Store</a> -->
+
+    <% if (user && user.isAdmin) { %>
+              <a class="navbar-brand fw-bold" href="/dashboard/admin">📚 Book Store</a>
+        <% } else if (user) { %>
+              <a class="navbar-brand fw-bold" href="/dashboard/user">📚 Book Store</a>
+        <% } else { %>
+              <a class="navbar-brand fw-bold" href="/">📚 Book Store</a>
+        <% } %>
+
+    <div class="d-flex align-items-center ms-auto gap-3">
+      <% if (user) { %>
+        <span class="text-muted">👤 <%= user.username %></span>
+
+        <% if (user.isAdmin) { %>
+          <a href="/dashboard/admin" class="btn btn-outline-warning btn-sm">⚙️ Admin Panel</a>
+        <% } else { %>
+          <a href="/dashboard/user" class="btn btn-outline-info btn-sm">👤 Dashboard</a>
+        <% } %>
+
+        <a href="/logout" class="btn btn-outline-danger btn-sm">🚪 Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-outline-primary btn-sm">🔐 Login</a>
+        <a href="/register" class="btn btn-outline-success btn-sm">📝 Register</a>
+      <% } %>
+    </div>
+  </div>
+</nav>

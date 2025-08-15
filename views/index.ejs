@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📚 Welcome to Book Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container text-center my-5">
+    <h1 class="mb-4 text-primary">📖 Welcome to Our Book Store</h1>
+
+    <% if (user) { %>
+      <h4 class="text-success">👋 Welcome, <%= user.username %>!</h4>
+
+      <div class="d-grid gap-4 col-6 mx-auto mt-5">
+        <a href="/books/allBooks" class="btn btn-primary btn-lg">📚 Show Books</a>
+        <a href="/cart/allCart" class="btn btn-success btn-lg">🛒 Show Cart</a>
+        <a href="/logout" class="btn btn-outline-danger">🚪 Logout</a>
+      </div>
+
+    <% } else { %>
+      <div class="alert alert-info mt-4">🔐 Please login to view books and cart.</div>
+      <a href="/login" class="btn btn-primary btn-lg">🔑 Login</a>
+    <% } %>
+  </div>
+
+  <%- include('partials/header') %>
+</body>
+</html>
